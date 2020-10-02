@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "PageRegister";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+<div class="register-box-body">
+    <p class="login-box-msg">Register a new membership</p>
+    <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+        <div class="form-group has-feedback">
+            <label name="FullName"></label>
+            <input name="FullName" class="form-control" placeholder="Full Name" />
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            <span name="FullName" class="text-danger"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <label name="Email"></label>
+            <input name="Email" class="form-control" placeholder="Email" />
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span name="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <label name="Password"></label>
+            <input name="Password" class="form-control" placeholder="Password" />
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span name="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <label name="ConfirmPassword"></label>
+            <input name="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+
+
+    <a href="/Admin/PageLogin" class="text-center">I already have a membership</a>
+</div>
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        var err = $('#error').val();
+        if (err) {
+            toastr.error(err);
+        }
+    </script>
+}
+
+
